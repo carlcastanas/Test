@@ -39,8 +39,8 @@ body {
 }
 
 .card {
-  background: rgb(42, 0, 66) url("./ring.png") 50% 50%;
-  background-size: 450%;
+  background: rgb(42, 0, 66) url("./ring.png");
+  text-align: center;
 }
 
 .card-shine {
