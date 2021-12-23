@@ -1,121 +1,146 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
-  user-select: none;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-	background: #18191A;
-  overflow: hidden;
-}
-nav{
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-nav .drop-btn{
-  width: 400px;
-  background: #242526;
-  border-radius: 5px;
-  line-height: 55px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #b0b3b8;
-  padding: 0 20px;
-}
-nav .drop-btn span{
-  float: right;
-  line-height: 50px;
-  font-size: 28px;
-  cursor: pointer;
-}
-nav .tooltip{
-  position: absolute;
-  right: 20px;
-  bottom: -20px;
-  height: 15px;
-  width: 15px;
-  background: #242526;;
-  transform: rotate(45deg);
-  display: none;
-}
-nav .tooltip.show{
-  display: block;
-}
-nav .wrapper{
-  position: absolute;
-  top: 65px;
-  display: flex;
-  width: 400px;
-  overflow: hidden;
-  border-radius: 5px;
-  background: #242526;
-  display: none;
-  transition: all 0.3s ease;
-}
-nav .wrapper.show{
-  display: block;
-  display: flex;
-}
-.wrapper ul{
-  width: 400px;
-  list-style: none;
-  padding: 10px;
-  transition: all 0.3s ease;
-}
-.wrapper ul li{
-  line-height: 55px;
-}
-.wrapper ul li a{
-  position: relative;
-  color: #b0b3b8;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 0 10px;
-  display: flex;
-  border-radius: 8px;
-  align-items: center;
-  text-decoration: none;
-}
-.wrapper ul li:hover a{
-  background: #3A3B3C;
-}
-ul li a .icon{
-  height: 40px;
-  width: 40px;
-  margin-right: 13px;
-  background: #ffffff1a;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 50%;
-}
-ul li a .icon span{
-  line-height: 40px;
-  font-size: 20px;
-  color: #b0b3b8;
-}
-ul li a i{
-  position: absolute;
-  right: 10px;
-  font-size: 25px;
-  pointer-events: none;
-}
-.wrapper ul.setting-drop,
-.wrapper ul.help-drop{
-  display: none;
-}
-.wrapper .arrow{
-  padding-left: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #b0b3b8;
-  cursor: pointer;
-}
-.wrapper .arrow span{
-  margin-right: 15px;
 }
 
+div {
+  display: block;
+  height: 100%;
+  -webkit-animation: hue-rotate 10s linear infinite;
+          animation: hue-rotate 10s linear infinite;
+}
+body{
+  background-color: #070125;
+}
+.button {
+  -webkit-font-smoothing: antialiased;
+  background-color: rgb(46, 0, 73);
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  letter-spacing: 1px;
+  color: white;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  transition: all 0.1s ease-out;
+  border-radius: 30px;
+}
+.button:hover {
+  background-color: #90feb5;
+  color: #fff;
+}
+.button:active {
+  transform: scale(0.95);
+}
+.button--bubble {
+  position: relative;
+  z-index: 2;
+  color: white;
+  background: none;
+}
+.button--bubble:hover {
+  background: none;
+}
+.button--bubble:hover + .button--bubble__effect-container .circle {
+  background: #44fd82;
+}
+.button--bubble:hover + .button--bubble__effect-container .button {
+  background: #44fd82;
+}
+.button--bubble:active + .button--bubble__effect-container {
+  transform: scale(0.95);
+}
+.button--bubble__container {
+  position: relative;
+  display: inline-block;
+}
+.button--bubble__container .effect-button {
+  position: absolute;
+  width: 50%;
+  height: 25%;
+  top: 50%;
+  left: 25%;
+  z-index: 1;
+  transform: translateY(-50%);
+  background: #222;
+  transition: background 0.1s ease-out;
+}
+
+.button--bubble__effect-container {
+  position: absolute;
+  display: block;
+  width: 200%;
+  height: 400%;
+  top: -150%;
+  left: -50%;
+  filter: url("#goo");
+  transition: all 0.1s ease-out;
+  pointer-events: none;
+}
+.button--bubble__effect-container .circle {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  background: #222;
+  transition: background 0.1s ease-out;
+}
+.button--bubble__effect-container .circle.top-left {
+  top: 40%;
+  left: 27%;
+}
+.button--bubble__effect-container .circle.bottom-right {
+  bottom: 40%;
+  right: 27%;
+}
+
+.goo {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.button--bubble__container {
+  top: 50%;
+  margin-top: -25px;
+}
+
+@-webkit-keyframes hue-rotate {
+  from {
+    -moz-filter: hue-rotate(0);
+    -ms-filter: hue-rotate(0);
+    filter: hue-rotate(0);
+  }
+  to {
+    -moz-filter: hue-rotate(360deg);
+    -ms-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes hue-rotate {
+  from {
+    -moz-filter: hue-rotate(0);
+    -ms-filter: hue-rotate(0);
+    filter: hue-rotate(0);
+  }
+  to {
+    -moz-filter: hue-rotate(360deg);
+    -ms-filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
